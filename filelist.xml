@@ -4,5 +4,5 @@
 <Item file="%ModDir%/XML/WeaponsRanged/shotguns.xml" />
 <Item file="%ModDir%/XML/WeaponsRanged/sniperrifles.xml" />
 <Item file="%ModDir%/XML/WeaponsRanged/specials.xml" />
-<Other file="%ModDir%/Images/m1911.png" />
+<Other file="%ModDir%/Images/m1911Full.png" />
 </contentpackage>

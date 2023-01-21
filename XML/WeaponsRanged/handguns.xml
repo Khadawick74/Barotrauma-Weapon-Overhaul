@@ -25,12 +25,11 @@ category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem, weapon,
     </Deconstruct>
 
     <InventoryIcon texture="%ModDir%/Barotrauma Weapon Overhaul/Images/m1911.png" sourcerect="2,0,1527,2044" origin="0.5,0.5" />
-    <RailSprite texture="%ModDir%/Barotrauma Weapon Overhaul/Images/m1911.png" depth="0.011" sourcerect="904,256,120,287" origin="0.64, 0.7" />
-    <BarrelSprite texture="%ModDir%/Barotrauma Weapon Overhaul/Images/m1911.png" depth="0.012" sourcerect="2,0,1386,311" origin="0.6, 0.8" />
+    <Sprite texture="%ModDir%/Barotrauma Weapon Overhaul/Images/m1911Full.png" depth="0.55" sourcerect="143,37,1576,1007" origin="0.5, 0.5" />
     <Body width="72" height="40" density="50" />
     <Holdable slots="Any,RightHand, LeftHand" controlpose="true" aimpos="90,10" handle1="-50,-4" handle2="-60,-15" msg="ItemMsgPickUpSelect" />
     <RangedWeapon reload="1.15" reloadnoskill="2.25" reloadskillrequirement="70" barrelpos="45,11" spread="1" unskilledspread="10" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" maxchargetime="0.3" holdtrigger="true">
-    
+
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="3000" selectionmode="Random" />
