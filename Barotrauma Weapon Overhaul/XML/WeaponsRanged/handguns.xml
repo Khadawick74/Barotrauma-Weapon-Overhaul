@@ -1,0 +1,153 @@
+<Items>
+  <!--M1911-->
+  <Item name="M1911" identifier="m1911" description="Chambered in .45 ACP, this beloved firearm has been in service for over a century and a half."
+    category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem, weapon, gun, pistolitem, gunsmith, mountableweapon" Scale="0.03" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer primary="wrecksecarmcab,abandonedsecarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
+
+    <Price baseprice="200" displaynonempty="true" minleveldifficulty="30">
+      <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="0" maxavailable="2" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="0" maxavailable="1" />
+    </Price>
+
+    <Fabricate suitablefabricators="fabricator" requiredtime="35">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="iron" />
+      <RequiredItem identifier="steel" amount="2" />
+    </Fabricate>
+
+    <Deconstruct time="20">
+      <Item identifier="steel" />
+      <Item identifier="iron" />
+    </Deconstruct>
+
+    <InventoryIcon texture="%ModDir%/Images/m1911.png" sourcerect="206,56,1512,969" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/m1911.png" sourcerect="206,56,1512,969" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Images/m1911Shot.png" sourcerect="128,66,1589,954" origin="0.5,0.5" maxcondition="98"/>
+    <Body width="72" height="40" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="90,10" handle1="-50,-4" handle2="-60,-15" msg="ItemMsgPickUpSelect" />
+
+    <RangedWeapon reload="1.15" reloadnoskill="2.25" reloadskillrequirement="45" barrelpos="45,11" spread="1" unskilledspread="10" combatPriority="70" drawhudwhenequipped="true" 
+    crosshairscale="0.2" maxchargetime="0.3" holdtrigger="true">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="3000" />
+      <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="14.0,14.0" colormultiplier="255,200,200,200" />
+
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="1.8" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="4.0" />
+      </StatusEffect>
+       <StatusEffect type="OnUse" target="contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="m1911Magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="40" />
+       <!-- <StatusEffect type="OnUse" target="this" Condition="95" stackable="false" SetValue="true" /> -->
+    </RangedWeapon>
+
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet">
+      <Containable items="m1911Magazine" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0." />
+  </Item>  
+
+  <!--M1911 Magazine-->
+  <Item name="M1911 Magazine" identifier="m1911Magazine" maxstacksize="8" scale="0.03" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,m1911Magazine,45ACP,pistalammoitem" 
+    impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="m1911" amount="1" spawnprobability="1"/>
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true"/>
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="3" spawnprobability="0.5"/>
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.2"/>
+    <PreferredContainer secondary="secarmcab"/>
+
+    <Price baseprice="100" displaynonempty="true" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="2" sold="false"/>
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="4" />
+    </Price>
+
+    <Fabricate suitablefabricators="fabricator" requiredtime="25" amount="2">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="magnesium" />
+      <RequiredItem identifier="lead" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="magnesium" />
+      <RequiredItem identifier="lead" />
+      <RequiredItem identifier="m1911Magazine" mincondition="0.0" usecondition="false"/>
+    </Fabricate>
+
+    <Deconstruct time="10">
+      <Item identifier="lead" mincondition="0.95"/>
+      <Item identifier="steel" />
+    </Deconstruct>
+
+    <InventoryIcon texture="%ModDir%/Images/m1911Magazine.png" sourcerect="858,303,181,677" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/m1911Magazine.png" sourcerect="858,303,181,677" depth="0.55" origin="0.5,0.5" />
+    <Body width="14" height="40" density="20" />
+
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="m1911Round" 
+      removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="m1911Round" />
+
+      <!--Spawn an M1911 round on use. Condition -14.2 -> 7 shots per magazine.-->
+      <StatusEffect type="OnUse" target="This" condition="-14.2" disabledeltatime="true">
+        <SpawnItem identifiers="m1911Round" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+
+    <!--Magazines can be combined to raise condition.-->
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item> 
+
+  <!--M1911 Round-->
+  <Item name="" identifier="m1911Round" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <InventoryIcon texture="%ModDir%/Images/m1911Magazine.png" sourcerect="704,384,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/m1911Magazine.png" sourcerect="858,303,181,677" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+
+    <Projectile characterusable="false" hitscan="true" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6"/>
+
+      <Attack structuredamage="5" targetforce="5" itemdamage="10" severlimbsprobability="0.1">
+        <Affliction identifier="gunshotwound" strength="12.5" />
+        <Affliction identifier="bleeding" strength="12.5" />
+        <Affliction identifier="stun" strength="0.2" probability="0.1" />
+      </Attack>
+
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure"/>
+        <Conditional hastag="eq door"/>
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+
+      <!-- M1911 rounds should not exist outside magazines -->
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+</Items>
