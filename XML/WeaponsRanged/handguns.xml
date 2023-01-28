@@ -46,13 +46,13 @@
        <StatusEffect type="OnUse" target="contained">
         <Use />
       </StatusEffect>
-      <RequiredItems items="m1911Magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <RequiredSkill identifier="weapons" level="40" />
        <!-- <StatusEffect type="OnUse" target="this" Condition="95" stackable="false" SetValue="true" /> -->
     </RangedWeapon>
 
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet">
-      <Containable items="m1911Magazine" />
+    <ItemContainer capacity="1" maxstacksize="7" hideitems="true" containedstateindicatorstyle="bullet">
+      <Containable items="revolverammo" />
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
     <Quality>
@@ -62,6 +62,7 @@
   </Item>  
 
   <!--M1911 Magazine-->
+  <!--
   <Item name="M1911 Magazine" identifier="m1911Magazine" maxstacksize="8" scale="0.03" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,m1911Magazine,45ACP,pistalammoitem" 
     impactsoundtag="impact_metal_light">
     <PreferredContainer primary="m1911" amount="1" spawnprobability="1"/>
@@ -105,19 +106,21 @@
     <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="m1911Round" 
       removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
       <Containable items="m1911Round" />
-
+      -->
       <!--Spawn an M1911 round on use. Condition -14.2 -> 7 shots per magazine.-->
+      <!--
       <StatusEffect type="OnUse" target="This" condition="-14.2" disabledeltatime="true">
         <SpawnItem identifiers="m1911Round" spawnposition="ThisInventory" />
       </StatusEffect>
     </ItemContainer>
 
-    <!--Magazines can be combined to raise condition.-->
+    
     <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item> 
-
+  -->
   <!--M1911 Round-->
+  <!--
   <Item name="" identifier="m1911Round" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
     <InventoryIcon texture="%ModDir%/Images/m1911Magazine.png" sourcerect="704,384,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Images/m1911Magazine.png" sourcerect="858,303,181,677" depth="0.55" origin="0.5,0.5" />
@@ -142,12 +145,14 @@
         <Conditional hastag="eq door"/>
         <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
       </StatusEffect>
-
+        -->
       <!-- M1911 rounds should not exist outside magazines -->
+      <!--
       <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1">
         <Remove />
       </StatusEffect>
     </Projectile>
-    <Upgrade gameversion="0.10.0.0" scale="0.5" />
-  </Item>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" /> 
+  </Item> 
+  -->
 </Items>
