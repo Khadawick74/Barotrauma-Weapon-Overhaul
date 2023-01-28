@@ -1,5 +1,5 @@
 <contentpackage name="Barotrauma Weapon Overhaul" corepackage="false" modversion="1.0.0" gameversion="0.20.16.0">
 <Item file="%ModDir%/XML/WeaponsRanged/handguns.xml" />
-<Other file="%ModDir%/Images/m1911.png" />
+<Other file="%ModDir%/Images/m1911Shot.png" />
 <Other file="%ModDir%/Images/m1911Full.png" />
 </contentpackage>

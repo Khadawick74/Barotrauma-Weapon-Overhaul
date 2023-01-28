@@ -1,7 +1,7 @@
 <Items>
   <!--M1911-->
   <Item name="M1911" identifier="m1911" description="Chambered in .45 ACP, this beloved firearm has been in service for over a century and a half."
-    category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem, weapon, gun, pistolitem, gunsmith, mountableweapon" Scale="0.03" impactsoundtag="impact_metal_light">
+    category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem, weapon, gun, pistolitem, gunsmith, mountableweapon" Scale="0.02" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="secarmcab" minamount="0" maxamount="1" spawnprobability="0.1" />
     <PreferredContainer primary="wrecksecarmcab,abandonedsecarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
 
@@ -25,30 +25,31 @@
       <Item identifier="iron" />
     </Deconstruct>
 
-    <InventoryIcon texture="%ModDir%/Images/m1911.png" sourcerect="206,56,1512,969" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Images/m1911.png" sourcerect="206,56,1512,969" origin="0.5,0.5" />
-    <BrokenSprite texture="%ModDir%/Images/m1911Shot.png" sourcerect="128,66,1589,954" origin="0.5,0.5" maxcondition="98"/>
+    <InventoryIcon texture="%ModDir%/Images/m1911Full.png" sourcerect="197,55,1521,970" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/m1911Full.png" sourcerect="197,55,1521,970" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Images/m1911Shot.png" sourcerect="112,65,1606,957" origin="0.5,0.5" maxcondition="98"/>
     <Body width="72" height="40" density="50" />
-    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="90,10" handle1="-50,-4" handle2="-60,-15" msg="ItemMsgPickUpSelect" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="90,10" handle1="-25,-4" msg="ItemMsgPickUpSelect" />
 
-    <RangedWeapon reload="1.15" reloadnoskill="2.25" reloadskillrequirement="45" barrelpos="45,11" spread="1" unskilledspread="10" combatPriority="70" drawhudwhenequipped="true" 
-    crosshairscale="0.2" maxchargetime="0.3" holdtrigger="true">
+    <RangedWeapon reload="0.65" reloadnoskill="2" reloadskillrequirement="40" barrelpos="45,11" spread="1" unskilledspread="10" combatPriority="70" drawhudwhenequipped="true" 
+    crosshairscale="0.2" >
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="3000" selectionmode="Random" />
       <Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="3000" />
       <Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="3000" />
-      <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="14.0,14.0" colormultiplier="255,200,200,200" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
 
       <StatusEffect type="OnUse">
         <Explosion range="150.0" force="1.8" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="4.0" />
       </StatusEffect>
-       <StatusEffect type="OnUse" target="contained">
+<!--    <StatusEffect type="OnUse" target="contained">
         <Use />
-      </StatusEffect>
+      </StatusEffect> -->   
       <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <RequiredSkill identifier="weapons" level="40" />
-       <!-- <StatusEffect type="OnUse" target="this" Condition="95" stackable="false" SetValue="true" /> -->
+      <StatusEffect type="OnUse" target="this" Condition="100" stackable="false" Delay="0.30" setvalue="true" />
+      <StatusEffect type="OnUse" target="this" Condition="95" stackable="false" SetValue="true" />
     </RangedWeapon>
 
     <ItemContainer capacity="1" maxstacksize="7" hideitems="true" containedstateindicatorstyle="bullet">
