@@ -1,7 +1,7 @@
 <Items>
   <!--M1911-->
   <Item name="M1911" identifier="m1911" description="Chambered in .45 ACP, this beloved firearm has been in service for over a century and a half."
-    category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem, weapon, gun, pistolitem, gunsmith, mountableweapon" Scale="0.02" impactsoundtag="impact_metal_light">
+    category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem, weapon, gun, pistolitem, gunsmith, mountableweapon" Scale="0.06" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="secarmcab" minamount="0" maxamount="1" spawnprobability="0.1" />
     <PreferredContainer primary="wrecksecarmcab,abandonedsecarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
 
@@ -25,11 +25,11 @@
       <Item identifier="iron" />
     </Deconstruct>
 
-    <InventoryIcon texture="%ModDir%/Images/m1911Full.png" sourcerect="197,55,1521,970" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Images/m1911Full.png" sourcerect="197,55,1521,970" origin="0.5,0.5" />
-    <BrokenSprite texture="%ModDir%/Images/m1911Shot.png" sourcerect="112,65,1606,957" origin="0.5,0.5" maxcondition="98"/>
+    <InventoryIcon texture="%ModDir%/Images/m1911.png" sourcerect="22,14,550,355" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/m1911.png" sourcerect="22,14,550,355" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Images/m1911Shot.png" sourcerect="4,14,568,360" origin="0.5,0.5" maxcondition="98"/>
     <Body width="72" height="40" density="50" />
-    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="90,10" handle1="-25,-4" msg="ItemMsgPickUpSelect" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="90,10" handle1="-175,-75" msg="ItemMsgPickUpSelect" />
 
     <RangedWeapon reload="0.65" reloadnoskill="2" reloadskillrequirement="40" barrelpos="45,11" spread="1" unskilledspread="10" combatPriority="70" drawhudwhenequipped="true" 
     crosshairscale="0.2" >
