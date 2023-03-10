@@ -2,4 +2,7 @@
 <Item file="%ModDir%/XML/WeaponsRanged/handguns.xml" />
 <Other file="%ModDir%/Images/m1911Shot.png" />
 <Other file="%ModDir%/Images/m1911.png" />
+<Other file="%ModDir%/Images/m1911magazine.png" />
+<Other file="%ModDir%/Images/45ACPBullet.png" />
+<Other file="%ModDir%/Images/45ACPInv.png" />
 </contentpackage>
