@@ -101,6 +101,7 @@
     <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <Upgrade gameversion="0.21.6.0" scale="0.5" />
   </Item>
+
   <!--.45 ACP Round (Armor Piercing)-->
   <Item name=".45 ACP Round (AP)" identifier="45ACPAP" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" 
     tags="smallitem,45ACP" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="10">
@@ -147,7 +148,7 @@
     tags="smallitem,45ACP" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="10">
 
   <InventoryIcon texture="%ModDir%/Images/45ACPHPInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
-  <Sprite texture="%ModDir%/Images/45ACPBullet.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
+  <Sprite texture="%ModDir%/Images/45ACPHP.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
   <Body width="40" height="14" density="30" />
 
   <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
@@ -170,4 +171,15 @@
     </Projectile>
     <Upgrade gameversion="0.21.6.0" scale="0.5" />
   </Item>  
+  
+  <!--.45 ACP Round (Depleted Fuel)-->
+  <Item name=".45 ACP Round (DF)" identifier="45ACPDU" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate"
+    tags="smallitem,45ACP" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="10">
+
+  <InventoryIcon texture="%ModDir%/Images/45ACPDUInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
+  <Sprite texture="%ModDir%/Images/45ACPDU.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
+  <Body width="40" height="14" density="30" />
+
+  <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+  <Projectile characterusable="false" hitscan="true" removeonhit="true"
 </Items>

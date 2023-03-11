@@ -5,4 +5,8 @@
 <Other file="%ModDir%/Images/m1911magazine.png" />
 <Other file="%ModDir%/Images/45ACPBullet.png" />
 <Other file="%ModDir%/Images/45ACPInv.png" />
+<Other file="%ModDir%/Images/45ACPHP.png" />
+<Other file="%ModDir%/Images/45ACPHPInv.png" />
+<Other file="%ModDir%/Images/45ACPDU.png" />
+<Other file="%ModDir%/Images/45ACPDUInv.png" />
 </contentpackage>
