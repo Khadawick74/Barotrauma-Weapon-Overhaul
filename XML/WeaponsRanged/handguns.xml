@@ -49,7 +49,7 @@
       <RequiredItems items="45ACP" type="Contained" />
     </RangedWeapon>
 
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false">
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="true">
       <Containable items="m1911Magazine" />
     </ItemContainer>
 
@@ -78,27 +78,36 @@
       <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="2" />
     </Price>
 
-    <Fabricate suitablefabricators="fabricator" requiredtime="25" amount="2">
-      <RequiredSkill identifier="weapons" level="5" />
-      <RequiredItem identifier="steel" mincondition="0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+      <RequiredItem identifier="steel" />
     </Fabricate>
-
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+      <RequiredItem identifier="m1911Magazine" mincondition="0.0" maxcondition="0.1" usecondition="false" />
+    </Fabricate>
     <Deconstruct time="10">
-      <Item identifier="steel" mincondition="0.5" />
+      <Item identifier="steel" />
     </Deconstruct>
 
     <InventoryIcon texture="%ModDir%/Images/m1911Magazine.png" sourcerect="2,2,39,51" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Images/m1911Magazine.png" sourcerect="0,0,43,58" origin="0.5,0.5" />
     <Body width="14" height="40" density="20" />
-
-    <ItemContainer hideitems="true" capacity="1" maxstacksize="7" drawinventory="true" canbeselected="true" ShowConditionInContainedStateIndicator="false">
-      <Containable items="45ACP" />
-      <!--Spawn an M1911 round on use. Condition -14.2 -> 7 shots per magazine.-->
-      <!--<StatusEffect type="OnUse" target="This" condition="-14.2" disabledeltatime="true">
-        <SpawnItem identifiers="45ACPRound" spawnposition="ThisInventory" />
-      </StatusEffect>-->
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="45ACPAP" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="45ACPAP" />
+      <!--Spawn a .45 ACP round on use. Condition -14.2 -> 7 shots per magazine.-->
+      <StatusEffect type="OnUse" target="This" condition="-14.2" disabledeltatime="true">
+        <SpawnItem identifiers="45ACPAP" spawnposition="ThisInventory" />
+      </StatusEffect>
     </ItemContainer>
+    <!--Magazines can be combined to raise condition.-->
     <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
-    <Upgrade gameversion="0.21.6.0" scale="0.5" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
 </Items>

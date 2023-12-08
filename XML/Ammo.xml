@@ -13,8 +13,10 @@
 
   <Fabricate suitablefabricators="fabricator" requiredtime="12" amount="6">
     <RequiredSkill identifier="weapons" level="25" />
-    <RequiredItem identifier="steel" amount="1" />
-    <RequiredItem identifier="magnesium" amount="1" />
+    <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+    <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+    <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+    <RequiredItem identifier="steel" amount="1"/>
   </Fabricate>
 
     <InventoryIcon texture="%ModDir%/Images/45ACPInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
@@ -24,7 +26,7 @@
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
-      <Attack structuredamage="5" targetforce="5" itemdamage="50" severlimbsprobability="0.02" penetration="0.40">
+      <Attack structuredamage="5" targetforce="5" itemdamage="50" severlimbsprobability="0.02" penetration="0.4">
         <Affliction identifier="gunshotwound" strength="50" />
         <Affliction identifier="bleeding" strength="10" />
         <!-- <Affliction identifier="stun" strength="0.03" /> -->
@@ -57,9 +59,10 @@
 
   <Fabricate suitablefabricators="fabricator" requiredtime="12" amount="6">
     <RequiredSkill identifier="weapons" level="25" />
-    <RequiredItem identifier="steel" amount="1" />
-    <RequiredItem identifier="aluminium" amount="1" />
-    <RequiredItem identifier="magnesium" amount="1" />
+    <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+    <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+    <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+    <RequiredItem identifier="steel" amount="1"/>
   </Fabricate>
 
 
@@ -71,8 +74,8 @@
   <Projectile characterusable="false" hitscan="true" removeonhit="true">
     <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
     <Attack targetforce="5" itemdamage="50" severlimbsprobability="0.3" penetration="0.05" >
-      <Affliction identifier="gunshotwound" strength="60" />
-      <Affliction identifier="bleeding" strength="40" />
+      <Affliction identifier="gunshotwound" strength="20" />
+      <Affliction identifier="bleeding" strength="60" />
     </Attack>
     
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -116,7 +119,7 @@
   <Projectile characterusable="false" hitscan="true" removeonhit="true">
     <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
     <Attack structuredamage="1" targetforce="5" itemdamage="50" severlimbsprobability="0.3" penetration="0.5" >
-      <Affliction identifier="gunshotwound" strength="70" />
+      <Affliction identifier="gunshotwound" strength="50" />
       <Affliction identifier="bleeding" strength="20" />
       <Affliction identifier="radiationsickness" strength="15" />
     </Attack>
@@ -148,10 +151,10 @@
 
   <Fabricate suitablefabricators="fabricator" requiredtime="12" amount="6">
     <RequiredSkill identifier="weapons" level="70" />
-    <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+    <RequiredItem identifier="titaniumaluminiumalloy" amount="1" mincondition="0.5"/>
     <RequiredItem identifier="aluminum" amount="1" />
     <RequiredItem identifier="magnesium" amount="1" />
-    <RequiredItem identifier="physicorium" amount="1" />
+    <RequiredItem identifier="physicorium" amount="1" mincondition="0.5" />
   </Fabricate>
 
   <InventoryIcon texture="%ModDir%/Images/45ACPHPInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
