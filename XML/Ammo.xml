@@ -1,41 +1,21 @@
 <Items> 
-  <!--.45 ACP Round (Armor Piercing)-->
-  <Item name=".45 ACP Round (AP)" identifier="45ACPAP" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" 
+  <!--.45 ACP Round-->
+  <Item name="" identifier="45ACP" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" 
     tags="smallitem,45ACP,smallammo" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="12">
-  
-    <Price baseprice="5" displaynonempty="true" minleveldifficulty="5">
-      <Price storeidentifier="merchantoutpost" multiplier="0.5" />
-      <Price storeidentifier="merchantcity" multiplier="0.5" />
-      <Price storeidentifier="merchantresearch" multiplier="0.5" />
-      <Price storeidentifier="merchantmilitary" multiplier="0.5" />
-      <Price storeidentifier="merchantmine" multiplier="0.5" />
-    </Price>
-
-  <Fabricate suitablefabricators="fabricator" requiredtime="12" amount="6">
-    <RequiredSkill identifier="weapons" level="25" />
-    <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
-    <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
-    <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
-    <RequiredItem identifier="steel" amount="1"/>
-  </Fabricate>
-
     <InventoryIcon texture="%ModDir%/Images/45ACPInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Images/45ACPBullet.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
     <Body width="40" height="14" density="30" />
-
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
-      <Attack structuredamage="5" targetforce="5" itemdamage="50" severlimbsprobability="0.02" penetration="0.4">
+      <Attack structuredamage="5" targetforce="5" itemdamage="50" severlimbsprobability="0.02" penetration="0.3">
         <Affliction identifier="gunshotwound" strength="50" />
         <Affliction identifier="bleeding" strength="10" />
         <!-- <Affliction identifier="stun" strength="0.03" /> -->
       </Attack>
-
       <StatusEffect type="OnImpact" target="UseTarget">
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
       </StatusEffect>
-
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure" />
         <Conditional hastag="eq door" />
@@ -45,135 +25,70 @@
     <Upgrade gameversion="0.21.6.0" scale="0.5" />
   </Item>
 
-  <!--.45 ACP Round (Hollow Point)-->
-  <Item name=".45 ACP Round (HP)" identifier="45ACPHP" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate"
-    tags="smallitem,45ACP,smallammo" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="12">
-
-    <Price baseprice="5" displaynonempty="true" minleveldifficulty="5">
-      <Price storeidentifier="merchantoutpost" multiplier="0.5" />
-      <Price storeidentifier="merchantcity" multiplier="0.5" />
-      <Price storeidentifier="merchantresearch" multiplier="0.5" />
-      <Price storeidentifier="merchantmilitary" multiplier="0.5" />
-      <Price storeidentifier="merchantmine" multiplier="0.5" /> 
+  <!--M1911 Magazine-->
+  <Item name="" identifier="m1911magazine" maxstacksize="8" maxstacksizecharacterinventory="2" scale="0.5" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,smgammo" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="m1911,pistol" amount="1" spawnprobability="1" />
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Price baseprice="100" displaynonempty="true" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="4" />
     </Price>
-
-  <Fabricate suitablefabricators="fabricator" requiredtime="12" amount="6">
-    <RequiredSkill identifier="weapons" level="25" />
-    <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
-    <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
-    <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
-    <RequiredItem identifier="steel" amount="1"/>
-  </Fabricate>
-
-
-  <InventoryIcon texture="%ModDir%/Images/45ACPHPInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
-  <Sprite texture="%ModDir%/Images/45ACPHP.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
-  <Body width="40" height="14" density="30" />
-
-  <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
-  <Projectile characterusable="false" hitscan="true" removeonhit="true">
-    <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
-    <Attack targetforce="5" itemdamage="50" severlimbsprobability="0.3" penetration="0.05" >
-      <Affliction identifier="gunshotwound" strength="20" />
-      <Affliction identifier="bleeding" strength="60" />
-    </Attack>
-    
-      <StatusEffect type="OnImpact" target="UseTarget">
-        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+      <RequiredItem identifier="steel" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+      <RequiredItem identifier="m1911magazine" mincondition="0.0" maxcondition="0.1" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,960,64,64" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.54" sourcerect="146,157,21,44" origin="0.5,0.5" />
+    <Body width="14" height="40" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="45ACP" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="45ACP" />
+      <!--Spawn a round on use. Condition -14.2 -> 7 shots per magazine.-->
+      <StatusEffect type="OnUse" target="This" condition="-14.2" disabledeltatime="true">
+        <SpawnItem identifiers="45ACP" spawnposition="ThisInventory" />
       </StatusEffect>
+    </ItemContainer>
+    <!--Magazines can be combined to raise condition.-->
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
 
-      <StatusEffect type="OnImpact" target="UseTarget">
-        <Conditional entitytype="eq Structure" />
-        <Conditional hastag="eq door" />
-        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
-      </StatusEffect>
-  </Projectile>
-  <Upgrade gameversion="0.21.6.0" scale="0.5" />
-  </Item>  
-  
   <!--.45 ACP Round (Depleted Fuel)-->
-  <Item name=".45 ACP Round (DF)" identifier="45ACPDF" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate"
+  <Item name="" identifier="45ACPDF" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate"
     tags="smallitem,45ACP,smallammo" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="12">
-
-    <Price baseprice="25" sold="false">
-      <Price storeidentifier="merchantoutpost" multiplier="1.5" />
-      <Price storeidentifier="merchantcity" multiplier="1.25" />
-      <Price storeidentifier="merchantresearch" multiplier="1.25" />
-      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
-      <Price storeidentifier="merchantmine" multiplier="1.25" />
-    </Price>
-
-  <Fabricate suitablefabricators="fabricator" requiredtime="12" amount="6">
-    <RequiredSkill identifier="weapons" level="40" />
-    <RequiredItem identifier="steel" amount="1" />
-    <RequiredItem identifier="aluminum" amount="1" />
-    <RequiredItem identifier="magnesium" amount="1" />
-    <RequiredItem identifier="depletedfuel" mincondition="0.5" />
-  </Fabricate>
-
   <InventoryIcon texture="%ModDir%/Images/45ACPDUInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
   <Sprite texture="%ModDir%/Images/45ACPDU.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
   <Body width="40" height="14" density="30" />
-
   <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
   <Projectile characterusable="false" hitscan="true" removeonhit="true">
     <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
-    <Attack structuredamage="1" targetforce="5" itemdamage="50" severlimbsprobability="0.3" penetration="0.5" >
+    <Attack structuredamage="1" targetforce="5" itemdamage="50" severlimbsprobability="0.3" penetration="0.75" >
       <Affliction identifier="gunshotwound" strength="50" />
       <Affliction identifier="bleeding" strength="20" />
       <Affliction identifier="radiationsickness" strength="15" />
     </Attack>
-    
       <StatusEffect type="OnImpact" target="UseTarget">
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
       </StatusEffect>
-
-      <StatusEffect type="OnImpact" target="UseTarget">
-        <Conditional entitytype="eq Structure" />
-        <Conditional hastag="eq door" />
-        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
-      </StatusEffect>
-  </Projectile>
-  <Upgrade gameversion="0.21.6.0" scale="0.5" />
-  </Item>  
-
-  <!--.45 ACP Round (Physicorium)-->
-  <Item name=".45 ACP Round (Physicorium)" identifier="45ACPPhys" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate"
-    tags="smallitem,45acp,smallammo" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="12">
-
-    <Price baseprice="100" sold="false">
-      <Price storeidentifier="merchantoutpost" multiplier="1.5" />
-      <Price storeidentifier="merchantcity" multiplier="1.25" />
-      <Price storeidentifier="merchantresearch" multiplier="1.25" />
-      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
-      <Price storeidentifier="merchantmine" multiplier="1.25" />
-    </Price>
-
-  <Fabricate suitablefabricators="fabricator" requiredtime="12" amount="6">
-    <RequiredSkill identifier="weapons" level="70" />
-    <RequiredItem identifier="titaniumaluminiumalloy" amount="1" mincondition="0.5"/>
-    <RequiredItem identifier="aluminum" amount="1" />
-    <RequiredItem identifier="magnesium" amount="1" />
-    <RequiredItem identifier="physicorium" amount="1" mincondition="0.5" />
-  </Fabricate>
-
-  <InventoryIcon texture="%ModDir%/Images/45ACPHPInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
-  <Sprite texture="%ModDir%/Images/45ACPHP.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
-  <Body width="40" height="14" density="30" />
-
-  <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
-  <Projectile characterusable="false" hitscan="true" removeonhit="true">
-    <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
-    <Attack targetforce="5" itemdamage="50" severlimbsprobability="0.7" penetration="0.7" >
-      <Affliction identifier="gunshotwound" strength="55" />
-      <Affliction identifier="bleeding" strength="10" />
-      <Affliction identifier="laceration" strength="45" />
-    </Attack>
-    
-      <StatusEffect type="OnImpact" target="UseTarget">
-        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
-      </StatusEffect>
-
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure" />
         <Conditional hastag="eq door" />
