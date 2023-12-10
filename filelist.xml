@@ -1,8 +1,13 @@
 <contentpackage name="Barotrauma Weapon Overhaul" corepackage="false" modversion="0.1.0" gameversion="0.20.16.1">
 <Item file="%ModDir%/XML/WeaponsRanged/handguns.xml" />
-<Item file="%ModDir%/XML/WeaponsRanged/autorifles.xml" />
-<Item file="%ModDir%/XML/WeaponsRanged/shotguns.xml" />
-<Item file="%ModDir%/XML/WeaponsRanged/sniperrifles.xml" />
-<Item file="%ModDir%/XML/WeaponsRanged/specials.xml" />
-<Other file="%ModDir%/Images/m1911Full.png" />
+<Item file="%ModDir%/XML/Ammo.xml" />
+<Other file="%ModDir%/Images/m1911Shot.png" />
+<Other file="%ModDir%/Images/m1911.png" />
+<Other file="%ModDir%/Images/m1911magazine.png" />
+<Other file="%ModDir%/Images/45ACPBullet.png" />
+<Other file="%ModDir%/Images/45ACPInv.png" />
+<Other file="%ModDir%/Images/45ACPHP.png" />
+<Other file="%ModDir%/Images/45ACPHPInv.png" />
+<Other file="%ModDir%/Images/45ACPDU.png" />
+<Other file="%ModDir%/Images/45ACPDUInv.png" />
 </contentpackage>
