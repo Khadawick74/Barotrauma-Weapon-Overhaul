@@ -1,0 +1,100 @@
+<Items> 
+  <!--.45 ACP Round-->
+  <Item name="" identifier="45ACP" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" 
+    tags="smallitem,45ACP,smallammo" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="12">
+    <InventoryIcon texture="%ModDir%/Images/45ACPInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/45ACPBullet.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="5" targetforce="5" itemdamage="50" severlimbsprobability="0.02" penetration="0.3">
+        <Affliction identifier="gunshotwound" strength="50" />
+        <Affliction identifier="bleeding" strength="10" />
+        <!-- <Affliction identifier="stun" strength="0.03" /> -->
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+    </Projectile>
+    <Upgrade gameversion="0.21.6.0" scale="0.5" />
+  </Item>
+
+  <!--M1911 Magazine-->
+  <Item name="" identifier="m1911magazine" maxstacksize="8" maxstacksizecharacterinventory="2" scale="0.5" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,smgammo" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="m1911,pistol" amount="1" spawnprobability="1" />
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Price baseprice="100" displaynonempty="true" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="4" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+      <RequiredItem identifier="steel" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+      <RequiredItem identifier="m1911magazine" mincondition="0.0" maxcondition="0.1" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,960,64,64" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.54" sourcerect="146,157,21,44" origin="0.5,0.5" />
+    <Body width="14" height="40" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="45ACP" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="45ACP" />
+      <!--Spawn a round on use. Condition -14.2 -> 7 shots per magazine.-->
+      <StatusEffect type="OnUse" target="This" condition="-14.2" disabledeltatime="true">
+        <SpawnItem identifiers="45ACP" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <!--Magazines can be combined to raise condition.-->
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+
+  <!--.45 ACP Round (Depleted Fuel)-->
+  <Item name="" identifier="45ACPDF" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate"
+    tags="smallitem,45ACP,smallammo" impactsoundtag="impact_metal_light" scale="0.5" maxstacksize="12">
+  <InventoryIcon texture="%ModDir%/Images/45ACPDUInv.png" sourcerect="0,0,48,52" origin="0.5,0.5" />
+  <Sprite texture="%ModDir%/Images/45ACPDU.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
+  <Body width="40" height="14" density="30" />
+  <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+  <Projectile characterusable="false" hitscan="true" removeonhit="true">
+    <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
+    <Attack structuredamage="1" targetforce="5" itemdamage="50" severlimbsprobability="0.3" penetration="0.75" >
+      <Affliction identifier="gunshotwound" strength="50" />
+      <Affliction identifier="bleeding" strength="20" />
+      <Affliction identifier="radiationsickness" strength="15" />
+    </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+  </Projectile>
+  <Upgrade gameversion="0.21.6.0" scale="0.5" />
+  </Item>  
+</Items>

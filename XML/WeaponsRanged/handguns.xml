@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--M1911-->
+  <Item name="" identifier="m1911" description="Time tested, centuries-old classic colt pistol. Fires .45 ACP with enough stopping power to make a Mudraptor think twice about entering your ship." 
+    category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem, weapon, gun, pistolitem, gunsmith, mountableweapon" Scale="0.65" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="1" spawnprobability="0.3" />
+    <PreferredContainer primary="wrecksecarmcab,abandonedsecarmcab" minamount="0" maxamount="1" spawnprobability="0.2" />
+    <Price baseprice="200" displaynonempty="true" minleveldifficulty="10">
+      <Price storeidentifier="merchantcity" sold="true" multiplier="2" minavailable="0" maxavailable="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="1" maxavailable="2" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="1" maxavailable="1" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="iron" />
+      <RequiredItem identifier="steel" amount="2" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="steel" />
+      <Item identifier="iron" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Images/m1911.png" sourcerect="4,0,50,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/m1911.png" sourcerect="0,0,58,33" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Images/m1911Shot.png" sourcerect="0,0,58,33" origin="0.5,0.5" maxcondition="98" />
+    <Body width="72" height="40" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="90,10" handle1="-20,-5" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon reload="0.65" barrelpos="25,10" spread="1" unskilledspread="10" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="3000" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <StatusEffect type="OnUse">
+        <Explosion range="10.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="2.0" />
+      </StatusEffect>
+      <!--<StatusEffect type="OnUse" target="contained">
+        <Use />
+      </StatusEffect> -->
+      <RequiredItems items="m1911Magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="45" />
+      <StatusEffect type="OnUse" target="this" Condition="100" stackable="false" Delay="0.30" setvalue="true" />
+      <StatusEffect type="OnUse" target="this" Condition="95" stackable="false" SetValue="true" />
+      <RequiredItems items="45ACP" type="Contained" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="true">
+      <Containable items="m1911Magazine" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0." />
+  </Item>
+</Items>
